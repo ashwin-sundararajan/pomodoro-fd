@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for app/modules/app.js</title>
+    <title>Code coverage report for app/modules/utils.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">all files</a> / <a href="index.html">app/modules/</a> app.js
+      <a href="../../index.html">all files</a> / <a href="index.html">app/modules/</a> utils.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/10</span>
+        <span class='fraction'>7/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/5</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/10</span>
+        <span class='fraction'>6/7</span>
       </div>
     </div>
   </div>
@@ -58,40 +58,34 @@
 13
 14
 15
-16
-17
-18</td><td class="line-coverage quiet"><span class="cline-any cline-yes">5×</span>
-<span class="cline-any cline-yes">5×</span>
-<span class="cline-any cline-yes">4×</span>
+16</td><td class="line-coverage quiet"><span class="cline-any cline-yes">5×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">20×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4×</span>
-<span class="cline-any cline-yes">4×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define(['client', 'modules/pomodoro'], function(client, pomodoro) {
-  return function appActivated() {
-    console.log('app activated');
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define(function() {
+  function padZero(num) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (num &lt;= 9) return '0' + num;
 &nbsp;
-    pomodoro.init(document.getElementById('time-display'));
+<span class="cstat-no" title="statement not covered" >    return '' + num;</span>
+  }
+  return {
+    formatDuration: function(timeElapsed) {
+      var secondsElapsed = padZero(Math.round(timeElapsed / 1000) % 60);
+      var minutesElapsed = padZero(Math.floor(timeElapsed / 60000));
 &nbsp;
-    document.getElementById('start').addEventListener('click', function() {
-      pomodoro.startTimer();
-    });
-    document.getElementById('pause').addEventListener('click', function() <span class="fstat-no" title="function not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >      pomodoro.pauseTimer();</span>
-    });
-    document.getElementById('stop').addEventListener('click', function() {
-      pomodoro.resetTimer();
-    });
+      return minutesElapsed.concat(':', secondsElapsed);
+    }
   };
 });
 &nbsp;</pre></td></tr>

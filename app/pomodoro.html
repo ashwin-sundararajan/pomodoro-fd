@@ -7,10 +7,19 @@
       href="https://static.freshdev.io/fdk/2.0/assets/freshdesk.css"
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script
-      data-main="main.js"
-      src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="time-wrapper">
+      <div id="time-display" class="time-text">
+        --:--
+      </div>
+      <div class="button-bar">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="stop">Stop</button>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
